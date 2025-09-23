@@ -4,7 +4,7 @@ Tanggal Test: 23 September 2025
 
 Hasil running Screenhoot:
 
-![SS Running](https://github.com/sirrauf/TesTeknikal_GreenGlobalSumatera/blob/main/Screenshots%20hasil%20running/SS.png?raw=true)
+![SS Running](https://github.com/sirrauf/TesTeknikal_GreenGlobalSumatera/blob/main/Screenshots%20hasil%20running/SS_hasil_running.png?raw=true)
 
 Output gambar persegi panjang format png:
 
