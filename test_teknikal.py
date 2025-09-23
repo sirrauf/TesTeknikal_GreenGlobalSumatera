@@ -1,7 +1,7 @@
 import ezdxf
 import matplotlib.pyplot as plt
 
-# ========================================================================
+
 print("========================================================================\n")
 
 namaprogram = "Test Teknikal PT Green Global Sumatera\n"
@@ -53,3 +53,4 @@ png_filename = "output_persegipanjang.png"
 plt.savefig(png_filename, dpi=150)
 plt.close()
 print(f"File PNG berhasil dibuat: {png_filename}")
+
