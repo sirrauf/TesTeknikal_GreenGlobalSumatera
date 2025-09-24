@@ -8,7 +8,7 @@ Hasil running Screenhoot:
 
 Output gambar persegi panjang format SVG:
 
-![SS Output Gambar Persegi Panjang](https://github.com/sirrauf/TesTeknikal_GreenGlobalSumatera/blob/main/output_persegipanjang.png?raw=true)
+![SS Output Gambar Kursi 4 Kaki](https://raw.githubusercontent.com/sirrauf/TesTeknikal_GreenGlobalSumatera/0a6f11036db5107d20de3b608b8e730ff82e0873/output_20250924_123650.svg)
 
 # Cara running program
 1.[Download dan Install Python minimal versi 3.10.11](https://www.python.org/downloads/release/python-31011/)
