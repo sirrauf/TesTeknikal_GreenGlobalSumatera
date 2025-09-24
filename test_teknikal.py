@@ -451,7 +451,7 @@ class TextToCADConverter:
                 d = it.props.get("depth", 0.0)
                 h = it.props.get("height", 10.0)
 
-                # buat box 3D (ekstrusi persegi panjang)
+              
                 mesh = trimesh.creation.box(extents=(w, d, h))
                 mesh.apply_translation((x + w / 2, y + d / 2, h / 2))
                 meshes.append(mesh)
@@ -462,7 +462,7 @@ class TextToCADConverter:
                 r = it.props.get("radius", 1.0)
                 h = it.props.get("height", 10.0)
 
-                # buat silinder 3D (ekstrusi lingkaran)
+                
                 mesh = trimesh.creation.cylinder(radius=r, height=h, sections=32)
                 mesh.apply_translation((cx, cy, h / 2))
                 meshes.append(mesh)
