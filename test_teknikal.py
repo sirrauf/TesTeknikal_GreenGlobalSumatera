@@ -436,14 +436,12 @@ class TextToCADConverter:
 
         dwg.save()
         return filename
-
     
     def export_obj_extrude(self, filename: str):
         if not HAS_TRIMESH:
             print("trimesh/numpy tidak tersedia — melewatkan ekspor 3D.")
             return None
 
-        
         meshes = []
         for it in self.items:
             if it.kind in ("seat", "rect", "room"):
@@ -452,21 +450,21 @@ class TextToCADConverter:
                 w = it.props.get("width", 0.0)
                 d = it.props.get("depth", 0.0)
                 h = it.props.get("height", 10.0)
-              
-                verts2d = np.array([[x, y], [x + w, y], [x + w, y + d], [x, y + d]])
-                poly = trimesh.path.polygons.polygon_to_trimesh(verts2d)
-                if poly is None:
-                  
-                    mesh = trimesh.creation.box(extents=(w, d, h), transform=trimesh.transformations.translation_matrix((x + w / 2, y + d / 2, h / 2)))
-                else:
-                    mesh = poly.extrude(h)
+
+                # buat box 3D (ekstrusi persegi panjang)
+                mesh = trimesh.creation.box(extents=(w, d, h))
+                mesh.apply_translation((x + w / 2, y + d / 2, h / 2))
                 meshes.append(mesh)
+
             elif it.kind == "circle":
                 cx = it.props.get("cx", 0.0)
                 cy = it.props.get("cy", 0.0)
                 r = it.props.get("radius", 1.0)
-                mesh = trimesh.creation.cylinder(radius=r, height=it.props.get("height", 10.0), sections=32)
-                mesh.apply_translation((cx, cy, it.props.get("height", 10.0) / 2))
+                h = it.props.get("height", 10.0)
+
+                # buat silinder 3D (ekstrusi lingkaran)
+                mesh = trimesh.creation.cylinder(radius=r, height=h, sections=32)
+                mesh.apply_translation((cx, cy, h / 2))
                 meshes.append(mesh)
 
         if not meshes:
@@ -476,7 +474,6 @@ class TextToCADConverter:
         scene = trimesh.util.concatenate(meshes)
         scene.export(filename)
         return filename
-
 
 
 def main():
